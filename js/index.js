@@ -41,7 +41,6 @@ function addTodo(e) {
     `</li>`
   list.innerHTML += li
   input.value = ''
-  console.log(e.target);
 }
 
 form.addEventListener('submit', addTodo)
