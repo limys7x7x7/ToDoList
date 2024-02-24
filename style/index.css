@@ -6,6 +6,9 @@ body {
 .main{
   box-sizing: border-box;
 }
+.form{
+  margin: 40px auto;
+}
 .button{
   width: 90px;
   height: 36px;
@@ -14,6 +17,14 @@ body {
   width:  300px;
   height: 30px;
 }
+.list{
+  margin: 40px auto;
+}
+.list__li{ 
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
 .modal{
   display: none;
   position: fixed;

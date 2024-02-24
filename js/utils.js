@@ -1,57 +1,36 @@
+// Функция извлекает из localStorage Данные
 export function getTasksLocalStorage() {
   const taskJSON = localStorage.getItem('tasks')
   return taskJSON ? JSON.parse(taskJSON) : []
 }
-
+// Функция записывает в localStorage данные
 export function setTasksLocalStorage(tasks) {
-localStorage.setItem('tasks', JSON.stringify(tasks))
+  localStorage.setItem('tasks', JSON.stringify(tasks))
 }
-
+// Функция генерирует ID для созданных элементов списка ToDo
 export function generateId() {
   const times = Date.now()
   const randomPart = Math.floor(Math.random() * 10_000)
   return times + randomPart
 }
-
 export function updateListTasks() {
   document.querySelector('.list').textContent = ''
-  const todos = getTasksLocalStorage()
-  renderTasks(todos)
-
+  const todosArray = getTasksLocalStorage()
+  renderTasks(todosArray)
 }
+function renderTasks(tasksArray) {
+  if (!tasksArray || !tasksArray.length) return
 
-
-
-
-
-
-
-
-
-
-
-
-
-// для сохранения в строке РАБОТАЕТ
-// #######################################################
-
-// function changeHandler() {
-//   if(this.type !== 'checkbox') {
-//     localStorage.setItem(this.name, this.value)
-//     // console.log(this.name, this.value);
-//   }
-// }
-// function checkStorage() {
-// if(input.type !== 'submit') {
-//   if(input.type === 'checked') {
-// input.checked = localStorage.getItem(input.name)
-//   }
-//   else {input.value = localStorage.getItem(input.name)
-//   }
-// }
-// attachEvents()
-// }
-// function attachEvents() {
-//   input.addEventListener('change', changeHandler)
-// }
-// checkStorage()
+  tasksArray.forEach((value) => {
+    const { id, text } = value   // Деструкторизация 
+    const item = `<div class="task" data-task-id="${id}">
+    <li class="list__li">
+    <strong class="task__text">${text}</strong>
+    <div class="list__btns">
+    <button class="button list__buttonEdit">Ред</button>
+    <button class="button list__buttonDelete">Удалить</button></div>
+    </li>
+    </div>`
+    document.querySelector('.list').insertAdjacentHTML('beforeEnd', item)
+  })
+}
