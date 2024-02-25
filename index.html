@@ -10,17 +10,28 @@
   </head>
   <body>
     <div class="main">
-      <form class="form">
-        <input
-          type="text"
-          class="input form__input"
-          placeholder="Название задачи"
-          name="nameList"
-          value=""
-        />
-        <button type="submit" class="button form__button">Создать</button>
-      </form>
-      <div class="list"></div>
+      <div class="main__form">
+        <form class="form">
+          <input
+            type="text"
+            class="input form__input"
+            placeholder="Название задачи"
+            name="nameList"
+            value=""
+          />
+          <button type="submit" class="button form__button">Создать</button>
+        </form>
+      </div>
+      <div class="list">
+        <!-- <div class="task" data-task-id="${id}">
+          <li class="list__li">
+          <p class="task__text">${text}</p>
+          <div class="list__btns">
+          <button class="button list__buttonEdit">Ред</button>
+          <button class="button list__buttonDelete">Удалить</button></div>
+          </li>
+          </div> -->
+      </div>
     </div>
     <div class="modal">
       <div class="modal__content">
